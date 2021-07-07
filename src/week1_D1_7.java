@@ -8,7 +8,7 @@ import java.io.IOException;
 // 3. x,y index로 +5씩해서 창문 첫 줄의 위치를 잡고 타입을 검사한다.
 // time : 50m
 
-public class week1_7  {
+public class week1_D1_7  {
     public static void main(String[] args) throws IOException, NumberFormatException {
 
         // step 1
