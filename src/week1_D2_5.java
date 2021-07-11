@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 // 3-1 최대 수보다 크면 갱신
 // 3-2 최대 수랑 같으면 해당 부분 변수에 확인
 // 30m
+//일요일 커밋
 
 public class week1_D2_5{
     public static void main(String[] args) throws IOException{
