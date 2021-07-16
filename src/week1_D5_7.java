@@ -2,6 +2,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// https://www.acmicpc.net/problem/2941
+// time : 20m
+
 public class week1_D5_7 {
     public static void main(String[] args) throws IOException{
         String[] croAlpha = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
