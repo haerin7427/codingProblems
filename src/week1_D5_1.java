@@ -1,7 +1,5 @@
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 // https://www.acmicpc.net/problem/2163
 // time : 10m

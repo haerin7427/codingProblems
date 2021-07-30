@@ -5,14 +5,12 @@
 public class week1_D5_9 {
     class Solution {
         public int solution(String dirs) {
-            int answer = 0;
             int moveNum = dirs.length();
             int sX=0,sY=0;
             int eX=0, eY=0;
             int isNew = 1;
             int count = 0;
             
-            int[][] info = new int[moveNum][4];
             String[] infoS = new String[moveNum];
             
             for(int i = 0; i < moveNum; i++){

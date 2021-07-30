@@ -7,6 +7,7 @@ public class week2_D6_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
+        sc.close();
 
         Queue queue = new LinkedList();
 

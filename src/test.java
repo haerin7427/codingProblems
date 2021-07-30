@@ -1,4 +1,4 @@
-import java.util.StringTokenizer;
+
 
 public class test {
 
@@ -9,7 +9,7 @@ public class test {
             for(int i = 0 ; i < 3; i++)
                 sb.append('a');
 
-        String str = testStr.substring(1,4);
+        
 
         if(sb.equals(testStr.substring(1,4)))
             System.out.println("true");

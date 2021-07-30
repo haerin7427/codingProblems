@@ -8,6 +8,7 @@ public class week1_D3_9 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
+        sc.close();
 
         String[] sing = {"baby", "sukhwan", "tururu", "turu", "very", "cute", "tururu", "turu", "in", "bed", "tururu", "turu", "baby", "sukhwan"};
         // String[] s = "baby sukhwan tururu turu very cute tururu turu in bed tururu turu baby sukhwan".split(" "); 간편하게!!
