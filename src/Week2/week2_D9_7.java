@@ -40,7 +40,6 @@ public class week2_D9_7 {
             ans += (countx * county);
         }
         System.out.println(ans);
-
     }
     
 }
