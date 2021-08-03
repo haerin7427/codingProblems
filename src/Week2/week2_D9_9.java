@@ -27,6 +27,7 @@ public class week2_D9_9 {
                 max += 6 * (layer - 2) + 6;
             }
             System.out.println(layer);
+            
         }
     }
 }
