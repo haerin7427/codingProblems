@@ -1,4 +1,4 @@
 ## codingProlems
 
-I'm studying the Problem Solving using JAVA.
+I'm studying the Problem Solving in JAVA.
 
