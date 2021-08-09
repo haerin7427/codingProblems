@@ -1,7 +1,7 @@
 package Week3;
 
 // https://leetcode.com/problems/decode-string/
-// time: 5:12
+// time: 50m + 9:28
 // Create by haerin on 2021/08/09
 
 public class week3_D14_9 {
@@ -11,6 +11,7 @@ public class week3_D14_9 {
 //testcast
 // "3[a]2[bc]"
 // "3[a2[c]]"
+// "100[leetcode]"
 
 // class Solution {
 //     public String decodeString(String s) {
@@ -26,20 +27,36 @@ public class week3_D14_9 {
 //                 //System.out.println("2i: "+i);
                 
 //                 for(int k = i+2; k< s.length(); k++){
-//                     //System.out.println("3i: "+i);
-//                     //System.out.println("1k: "+k);
+//                     //System.out.println("k, i: "+k+"/"+i);
+//                     //System.out.println("s: "+s);
+//                     //System.out.println("s: "+s);
+// //                     System.out.println("3i: "+i);
+//                      //System.out.println("1k: "+k);
                     
                     
 //                     if(s.charAt(k) == ']'){
 //                         EndP += 1;
 //                         //System.out.println("4i: "+i);
                         
-//                         if(startP - EndP == 1)
-//                             s = s.substring(0,secSP)+ decodeString(s.substring(secSP,k+1)) + s.substring(k+1,s.length());
-//                         else if(startP == EndP){
+//                         if(startP - EndP == 1){
+//                             String mid = decodeString(s.substring(secSP,k+1));
+                            
+//                             // System.out.println("hi secSP:"+ secSP);
+//                             // System.out.println("mid:"+ mid);
+                            
+                            
+//                             int len = s.substring(k+1,s.length()).length();
+//                             s = s.substring(0,secSP)+ mid + s.substring(k+1,s.length());
+//                             //System.out.println("s:"+ s);
+//                             k = s.length() - len -1;
+                            
+                            
+//                         }else if(startP == EndP){
+                            
 //                             String temp = s.substring(i+2,k);
+                            
+//                             //System.out.println("hello ");
 //                             //System.out.println("temp: "+ temp+"("+k+")");
-//                             //System.out.println("5i: "+i);
                             
 //                             String str="";
 //                             for(int h=0; h < s.charAt(i)-'0';h++)
