@@ -16,6 +16,7 @@ int find (int num[MAX_VTXS], int m,  int size){
 	}
 	return count;
 	//
+	// 
 }
 
 void quickSort(int quick[MAX_VTXS], int i, int j)
