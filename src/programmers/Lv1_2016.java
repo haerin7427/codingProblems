@@ -2,7 +2,7 @@ package programmers;
 
 // https://programmers.co.kr/learn/courses/30/lessons/12901?language=java
 // title : 2016년 
-// time : 5년
+// time : 5m
 // Create by haerin on 2022/01/07
 
 public class Lv1_2016 {
