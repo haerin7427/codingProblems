@@ -1,9 +1,10 @@
 package programmers;
-
+import java.util.*;
 // https://programmers.co.kr/learn/courses/30/lessons/1845
 // title : 포켓몬
 // time : 20m
 // Create by haerin on 2022/01/13
+// Update by haerin on 2022/01/19
 
 public class Lv1_monster {
 
@@ -13,19 +14,12 @@ public class Lv1_monster {
             int n = nums.length;
             int answer = n/2;
             
-            int ssize = 200000;
-            int[] types = new int[ssize];
+            Set monsterSet = new HashSet();
+            for(int monster : nums)
+                monsterSet.add(monster);
             
-            int numType=0;
-            for(int monster : nums){
-                if(types[monster-1] == 0){
-                    numType+=1;
-                    types[monster-1] = 1;
-                }
-            }
-            
-            if(numType < n/2)
-                answer = numType;
+            if(monsterSet.size() < n/2)
+                answer = monsterSet.size();
             
             return answer;
         }
