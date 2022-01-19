@@ -1,60 +1,64 @@
 package programmers;
-import java.util.Comparator;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 
 // https://programmers.co.kr/learn/courses/30/lessons/42889
 // title : 실패율
-// time : 45m
+// time : 25m
 // Create by haerin on 2022/01/13
+// Update by haerin on 2022/01/19
 
 public class Lv1_fail {
 
     class Solution {
         public int[] solution(int N, int[] stages) {
-            int[] answer = new int[N];
-            int[][] allStages = new int[2][N+1];
             
-            for(int i=0; i<=N;i++)
-                allStages[0][i] = 0;
             
+            int[] players = new int[N+1];
             for(int stageNum : stages)
-                allStages[0][stageNum-1] += 1;
+                players[stageNum-1] += 1;
             
-            allStages[1][0] = stages.length;
-            for(int i=1; i <N; i++){
-                allStages[1][i] = allStages[1][i-1] - allStages[0][i-1];
-            }
-            
-            float[][] idxFail = new float[N][2];
-            
+            List<STAGE> stageInfo = new ArrayList<>();
+            int numP = stages.length;
             for(int i=0; i<N; i++){
-                idxFail[i][0] = i+1;
+                float failure = 0;
+                if(numP > 0)
+                    failure = players[i] / (float)numP;
                 
-                if(allStages[1][i] == 0)
-                    idxFail[i][1] = 0;
-                else
-                    idxFail[i][1] = (float)allStages[0][i] / allStages[1][i];
+                STAGE s = new STAGE(i+1, failure);
+                stageInfo.add(s);
+                numP -= players[i];
             }
             
-            Arrays.sort(idxFail ,new Comparator<float[]>(){
-                @Override
-                public int compare(float[] p1, float[] p2){
-                    if(p1[1] != p2[1] ){
-                        if(p1[1] < p2[1])
-                            return 1;
-                        else
-                            return -1;
-                    }else {
-                        return Float.compare(p1[0],p2[0]);
-                    }
-                }
-            });
+            Collections.sort(stageInfo, Collections.reverseOrder());
             
+            int[] answer = new int[N];
             for(int i=0; i<N; i++){
-                answer[i] = (int)idxFail[i][0];
+                answer[i] = stageInfo.get(i).step;
+            }
+            return answer;
+        }
+        
+        private class STAGE implements Comparable<STAGE>{
+            public int step;
+            public float failure;
+            
+            public STAGE(int s, float f){
+                this.step = s;
+                this.failure = f;
             }
             
-            return answer;
+            @Override
+              public int compareTo(STAGE o){
+                if (failure < o.failure ) {
+                    return -1;
+                }
+                if (failure > o.failure ) {
+                    return 1;
+                }
+                return 0;
+              }
         }
     }
     
