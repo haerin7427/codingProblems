@@ -50,6 +50,7 @@ public class test {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
         int N = Integer.parseInt(input);
+        
         treeNode root = new treeNode(N);
 
         while((input = br.readLine()) != null && !input.equals("")){
