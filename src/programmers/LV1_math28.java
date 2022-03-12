@@ -6,6 +6,7 @@ import java.util.*;
 // time : 15m
 // Create by haerin on 2022/03/11
 
+// 속도는 1번이 더 빠름
 public class LV1_math28 {
     class Solution {
         public long solution(long n) {
@@ -24,6 +25,21 @@ public class LV1_math28 {
                 answer += Math.pow(10,digit)*arr_for_sort[i];
             }
             return answer;
+        }
+    }
+    class Solution2 {
+        public long solution(long n) {
+            
+            String str = Long.toString(n);        
+            String arr[] = str.split("");
+            
+            Arrays.sort(arr);
+            StringBuffer sb = new StringBuffer();
+            for(int i=0; i<arr.length; i++)
+                sb.append(arr[i]);
+            
+            str = sb.reverse().toString();      
+            return Long.parseLong(str);
         }
     }
 }
