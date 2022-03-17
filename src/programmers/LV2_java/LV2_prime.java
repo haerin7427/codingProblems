@@ -6,44 +6,48 @@ import java.util.*;
 // time : 45m
 // Create by haerin on 2022/03/16
 
+// 1. 모든 경우의 수 HashSet에 저장
+// 2. 경우의 수 prime number 인지 확인
+// 3. prime number 수 확인
+
 public class LV2_prime {
 
-    public static HashSet<Integer> hash = new HashSet<>();
-
-    public int solution(String numbers) {
-        permutation("", numbers);
+    class Solution {
+        HashSet<Integer> numSet = new HashSet<>();
         
-        int answer = 0;
-        Iterator<Integer> iter = hash.iterator();
-        while(iter.hasNext()) { 
-            int num = iter.next(); 
-            if(isPrime(num)){
-                answer+=1; 
+        public int solution(String numbers) {
+            findEveryCase("", numbers);
+            
+            int ans = 0;
+            Iterator<Integer> it = numSet.iterator();
+            while(it.hasNext()){
+                int num = it.next();
+                if(isPrime(num))
+                    ans+=1;
+            }
+            return ans;
+            
+        }
+        
+        public void findEveryCase(String numStr, String others){
+            if(!numStr.equals(""))
+                numSet.add(Integer.valueOf(numStr));
+            
+            for(int i=0; i<others.length(); i++)
+                findEveryCase(numStr+others.charAt(i), others.substring(0,i)+others.substring(i+1));
+        }
+        
+        public boolean isPrime(int num){
+            if(num==0 || num==1)
+                return false;
+            else{
+                for(int i=2; i<=Math.sqrt(num); i++)
+                    if(num%i==0)
+                        return false;
             }
                 
-        } 
-        return answer;
-    }
+            return true;
+        }
     
-    public static void permutation(String s1, String s2) { 
-        if(!s1.equals("")) 
-            hash.add(Integer.parseInt(s1));        
-        for(int i=0; i<s2.length(); i++) { 
-            permutation(s1+s2.charAt(i), s2.substring(0,i)+s2.substring(i+1)); 
-        } 
     }
-
-    
-    public boolean isPrime (int num){
-        
-        if(num == 0 || num == 1)
-            return false;
-        
-        for(int i=2; i<=Math.sqrt(num); i++)
-            if(num % i == 0)
-                return false;
-        
-         return true;   
-    }
-    
 }
