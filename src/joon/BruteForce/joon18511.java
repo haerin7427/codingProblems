@@ -29,10 +29,8 @@ public class joon18511 {
             karrays[i] = Integer.parseInt(st.nextToken());
         
         Arrays.sort(karrays);
-        int[] ans = new int[1];
         dfs(karrays, 0, N);
         System.out.println(answer);
-        
     }
 
     public static void dfs(int[] karrays, int now, int N ){
@@ -44,15 +42,4 @@ public class joon18511 {
             dfs(karrays, now*10+karrays[i], N);
         }
     }
-
-    // public static void dfs(int[] karrays, int[] tmp, int N ){
-    //     if(N >= tmp[0])
-    //         return;
-            
-    //     for(int i=karrays.length-1; i>-1; i--){
-    //         tmp[0] *= 10; tmp[0] += karrays[i];
-    //         dfs(karrays, tmp, N);
-    //         tmp[0] -= karrays[i]; tmp[0] /= 10;
-    //     }
-    // }
 }
