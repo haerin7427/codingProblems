@@ -1,4 +1,5 @@
 package programmers.etc;
+import java.util.*;
 
 // 프로그래머스 "게임 맵 최단거리"
 
@@ -53,4 +54,62 @@ public class shortestPath {
         }
     }
     
+    class Solution2 {
+        class Location{
+            int x;
+            int y;
+            int cnt;
+            
+            Location(int x, int y, int cnt){
+                this.x = x;
+                this.y = y;
+                this.cnt = cnt;
+            }
+        }
+        
+        public int solution(int[][] maps) {   
+            return bfs(maps);
+        }
+        
+        int bfs(int[][] maps){
+            
+            int row = maps.length;
+            int col = maps[0].length;
+            
+            int[] dy = {1,-1,0,0};
+            int[] dx = {0,0,1,-1};
+            
+            Queue<Location> queue = new LinkedList<>();
+            Boolean[][] isVisited = new Boolean[row][col];
+            for(int i=0; i<isVisited.length; i++)
+                for(int j=0; j<isVisited[0].length; j++)
+                    isVisited[i][j] = false;
+            
+            int count = -1;
+            queue.offer(new Location(0,0,1));
+            isVisited[0][0] = true;
+            
+            while(!queue.isEmpty()){
+                
+                Location now = queue.remove();
+                if(now.x == col-1 && now.y == row-1){
+                    count = now.cnt;
+                    break;
+                }  
+    
+                for(int i=0; i<4; i++){
+                    int nx = now.x + dx[i];
+                    int ny = now.y + dy[i];
+                    
+                    if(nx < 0 || nx >= col || ny < 0 || ny >= row ) continue;
+                    if(maps[ny][nx] == 0 || isVisited[ny][nx]) continue;
+                    queue.offer(new Location(nx,ny,now.cnt+1));
+                    isVisited[ny][nx] = true;
+                }
+            }
+            
+            return count;
+            
+        }
+    }
 }
