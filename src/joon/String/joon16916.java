@@ -2,7 +2,7 @@ package joon.String;
 // https://www.acmicpc.net/problem/16916
 // title : 부분 문자열
 // time : 3:41
-// Created by haerin on 2022/06/10 + Google (https://devje8.tistory.com/24)
+// Created by haerin on 2022/06/07 + Google (https://devje8.tistory.com/24)
 // 알고리즘 : KMP
 
 import java.io.BufferedReader;
