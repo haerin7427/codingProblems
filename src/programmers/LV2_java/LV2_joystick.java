@@ -3,31 +3,28 @@ package programmers.LV2_java;
 // https://programmers.co.kr/learn/courses/30/lessons/42860
 // title : 조이스틱
 // time : 30m + help
-// Created by haerin on 2022/06/18
+// Created by haerin on 2022/06/19
 
 public class LV2_joystick {
-
     class Solution {
         public int solution(String name) {
             
-            int answer = 0;
-            int move = name.length() - 1;
+            int num_change_alpha = 0;
+            int num_move_cursor = name.length()-1; //default
             
-            for(int i = 0; i < name.length(); i++) {
-                answer += Math.min(name.charAt(i) - 'A', 26 - (name.charAt(i) - 'A'));
+            for(int i=0; i< name.length(); i++){
+                num_change_alpha += Math.min(name.charAt(i)-'A', 'Z'-name.charAt(i)+1);
                 
-                if (i < name.length() - 1 && name.charAt(i + 1) == 'A') {
-                    int A_endIdx = i + 1;
-                    while(A_endIdx < name.length() && name.charAt(A_endIdx) == 'A')
-                        A_endIdx++;
-                    
-                    move = Math.min(move, i * 2 + (name.length() - A_endIdx));
-                    move = Math.min(move, i + (name.length() - A_endIdx) * 2);
-                }
+                int idx = i+1; 
+                while(idx<name.length() && name.charAt(idx) == 'A')
+                    idx++;
+                
+                // index i가 방향 회전 포인트 일 경우, 최솟값 구하기
+                num_move_cursor = Math.min(num_move_cursor, i*2 + (name.length()-idx)); // right to left
+                num_move_cursor = Math.min(num_move_cursor, (name.length()-idx)*2 + i); // left to right
             }
-            answer += move;
             
-            return answer;
+            return num_change_alpha+num_move_cursor;
         }
     }
 }
