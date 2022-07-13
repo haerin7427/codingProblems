@@ -6,7 +6,7 @@ import java.util.*;
 // time : 7m
 // Created by haerin on 2022/07/08
 
-public class cookie {
+public class Q455 {
 
     class Solution {
         public int findContentChildren(int[] g, int[] s) {
