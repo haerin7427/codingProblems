@@ -8,10 +8,10 @@ public class LV2_skilltree {
     class Solution {
         public int solution(String skill, String[] skill_trees) {
             int answer = 0;
-            for(int i=0; i<skill_trees.length; i++){
-                String s = skill_trees[i].replaceAll("[^"+skill+"]","");
-                
-                if(skill.startsWith(s)) answer+=1;
+            for(String s : skill_trees) {
+                if(skill.startsWith(s.replaceAll("[^"+skill+"]",""))) {
+                    answer+=1;
+                }
             }
             return answer;
         }
