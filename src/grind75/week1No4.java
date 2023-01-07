@@ -13,13 +13,12 @@ public class week1No4 {
             int min_price = Integer.MAX_VALUE;
             int max_profit = 0;
     
-            for(int today_price : prices) {
-                if(today_price < min_price) {
-                    min_price = today_price;
+            for(int price : prices) {
+                if(price < min_price) {
+                    min_price = price;
                 }
-    
-                if(max_profit < today_price - min_price) {
-                    max_profit = today_price - min_price;
+                if(max_profit < price - min_price) {
+                    max_profit = price - min_price;
                 }
             }
             return max_profit;
